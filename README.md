@@ -15,6 +15,7 @@ Run with `yarn dev` inside backend-api
 2. MongoDB
 
 ### Testing
+Run `yarn test` inside backend-api
 1.  Mocha with chai for integration test
 
 ## Tools
