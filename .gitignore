@@ -2,6 +2,7 @@
 **.env
 **/.pnp
 **.pnp.js
+**yarn-error.log
 
 # testing
 **/coverage

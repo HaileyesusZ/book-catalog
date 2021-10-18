@@ -5,6 +5,8 @@ const { Types: { ObjectId }, Schema } = mongoose
 
 const BookSchema = new Schema<Book>({
     title: { type: String, required: true },
+    year: { type: Number, required: true },
+    description: { type: String, required: false },
     pages: { type: Number, required: true },
     author: {
         name: { type: String, required: true },

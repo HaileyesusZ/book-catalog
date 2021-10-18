@@ -13,9 +13,8 @@ router.get('/', async (req, res) => {
         const books = await BookModel.find({})
         return res.send({ data: books })
     } catch (error) {
-        res.status(500).send({ message: 'Unable to load books' })
         bookLogger.error(error.stack || error.message)
-
+        return res.status(500).send({ message: 'Unable to load books' })
     }
 })
 
@@ -31,8 +30,8 @@ router.post('/', async (req, res) => {
         const newBook = await BookModel.create(book)
         return res.send({ data: newBook })
     } catch (error) {
-        res.status(500).send({ message: 'Unable to add a book' })
         bookLogger.error(error.stack || error.message)
+        return res.status(500).send({ message: 'Unable to add a book' })
     }
 })
 
@@ -49,8 +48,8 @@ router.patch('/:id', async (req, res) => {
         const updatedBook = await BookModel.findOneAndUpdate({_id: oldBookId}, book, {new: true})
         return res.send({ data: updatedBook })
     } catch (error) {
-        res.status(500).send({ message: 'Unable to update a book' })
         bookLogger.error(error.stack || error.message)
+        return res.status(500).send({ message: 'Unable to update a book' })
     }
 })
 /**
@@ -65,8 +64,8 @@ router.delete('/:id', async (req, res) => {
         const deletedBook = await BookModel.findOneAndDelete({_id: oldBookId})
         return res.send({ data: deletedBook })
     } catch (error) {
-        res.status(500).send({ message: 'Unable to delete a book' })
         bookLogger.error(error.stack || error.message)
+        return res.status(500).send({ message: 'Unable to delete a book' })
     }
 })
 

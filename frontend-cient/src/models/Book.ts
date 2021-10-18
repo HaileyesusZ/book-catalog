@@ -1,11 +1,12 @@
-import { Author } from "./author";
+import Author from "./Author";
 
 interface Book {
+    _id?: string,
     title: string,
     pages: number,
     author: Author,
     year: number,
-    description: string,
+    description: string
 }
 
-export { Book }
+export default Book
